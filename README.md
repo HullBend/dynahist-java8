@@ -1,5 +1,5 @@
 ![logo](docs/figures/logo.png)
-# DynaHist-Java8: A Dynamic Histogram Library for Java 8+
+# DynaHist: A Dynamic Histogram Library for Java 8+
 
 [![CircleCI](https://circleci.com/gh/dynatrace-oss/dynahist/tree/master.svg?style=svg)](https://circleci.com/gh/dynatrace-oss/dynahist/tree/master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dynatrace-oss_dynahist&metric=alert_status)](https://sonarcloud.io/dashboard?id=dynatrace-oss_dynahist)
