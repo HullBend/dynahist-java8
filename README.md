@@ -1,5 +1,5 @@
 ![logo](docs/figures/logo.png)
-# DynaHist: A Dynamic Histogram Library for Java
+# DynaHist-Java8: A Dynamic Histogram Library for Java 8+
 
 [![CircleCI](https://circleci.com/gh/dynatrace-oss/dynahist/tree/master.svg?style=svg)](https://circleci.com/gh/dynatrace-oss/dynahist/tree/master)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=dynatrace-oss_dynahist&metric=alert_status)](https://sonarcloud.io/dashboard?id=dynatrace-oss_dynahist)
@@ -56,8 +56,7 @@ histogram.readAsDynamic(layout, dataInput); // read dynamic histogram from a jav
 
 ## Getting Started
 
-DynaHist is available as Maven package on [JCenter](https://bintray.com/dynatrace/dynahist) and should be used via Maven, Gradle or Ivy.
-If automatic dependency management is not possible obtain the jar file from [GitHub Releases](https://github.com/dynatrace-oss/dynahist/releases).
+DynaHist-Java8 is available as a Maven package on Maven Central.
 
 ## History
 At [Dynatrace](https://www.dynatrace.com/) we were looking for a data sketch with a fast update time, which can also answer order statistic queries with error guarantees. As an example, such a data structure should be able to provide the 99th percentile with a maximum relative error of 1%. Other data structures like [t-digest](https://github.com/tdunning/t-digest) do not have strict error limits. In our search, we finally came across [HdrHistogram](https://github.com/HdrHistogram/HdrHistogram), a histogram implementation that intelligently selects bin boundaries so that 
@@ -130,7 +129,7 @@ While `log(1 + r)` and `log(c)` can be precomputed, the calculation of `log(v)` 
 
 ## License
 
-[Apache Version 2.0](https://github.com/dynatrace-oss/dynahist/blob/master/LICENSE)
+[Apache Version 2.0](https://github.com/HullBend/dynahist-java8/blob/master/LICENSE)
 
 ## Main Contributors
 * [Otmar Ertl](https://github.com/oertl)
