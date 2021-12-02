@@ -170,7 +170,7 @@ abstract class AbstractMutableHistogram extends AbstractHistogram implements His
     private final long greaterCount;
     private final int binIndex;
 
-    private BinCopyImpl(long binCount, long lessCount, long greaterCount, int binIndex) {
+    BinCopyImpl(long binCount, long lessCount, long greaterCount, int binIndex) {
       this.binCount = binCount;
       this.lessCount = lessCount;
       this.greaterCount = greaterCount;

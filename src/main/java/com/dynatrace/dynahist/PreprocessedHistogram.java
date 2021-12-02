@@ -35,8 +35,8 @@ final class PreprocessedHistogram extends AbstractHistogram {
 
   private final double min;
   private final double max;
-  private final long[] accumulatedCounts;
-  private final int[] nonEmptyBinIndices;
+  final long[] accumulatedCounts;
+  final int[] nonEmptyBinIndices;
 
   static Histogram of(Histogram histogram) {
     if (histogram instanceof PreprocessedHistogram) {
@@ -97,7 +97,7 @@ final class PreprocessedHistogram extends AbstractHistogram {
     return new BinIteratorImpl((i >= 0) ? i : -(i + 1));
   }
 
-  private long getCountOfNonEmptyBin(int nonEmptyBinIndex) {
+  long getCountOfNonEmptyBin(int nonEmptyBinIndex) {
     if (nonEmptyBinIndex > 0) {
       return accumulatedCounts[nonEmptyBinIndex] - accumulatedCounts[nonEmptyBinIndex - 1];
     } else {
@@ -152,6 +152,8 @@ final class PreprocessedHistogram extends AbstractHistogram {
 
     protected abstract int getNonEmptyIndex();
 
+    AbstractBinExtended() {}
+
     @Override
     public long getBinCount() {
       return getCountOfNonEmptyBin(getNonEmptyIndex());
@@ -181,7 +183,7 @@ final class PreprocessedHistogram extends AbstractHistogram {
   private final class BinCopyImpl extends AbstractBinExtended {
     private final int nonEmptyBinIndex;
 
-    private BinCopyImpl(int nonEmptyBinIndex) {
+    BinCopyImpl(int nonEmptyBinIndex) {
       this.nonEmptyBinIndex = nonEmptyBinIndex;
     }
 
@@ -195,7 +197,7 @@ final class PreprocessedHistogram extends AbstractHistogram {
 
     private int nonEmptyBinIndex;
 
-    private BinIteratorImpl(final int nonEmptyBinIndex) {
+    BinIteratorImpl(final int nonEmptyBinIndex) {
       this.nonEmptyBinIndex = nonEmptyBinIndex;
     }
 

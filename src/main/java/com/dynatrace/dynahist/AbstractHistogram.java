@@ -222,7 +222,7 @@ abstract class AbstractHistogram implements Histogram {
     return addHistogram(histogram, DEFAULT_VALUE_ESTIMATOR);
   }
 
-  private abstract class AbstractNonEmptyBinsIterable implements Iterable<Bin> {
+  abstract class AbstractNonEmptyBinsIterable implements Iterable<Bin> {
 
     protected abstract BinIterator getStart();
 

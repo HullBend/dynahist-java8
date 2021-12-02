@@ -64,6 +64,7 @@ public class PreprocessedHistogramTest extends AbstractHistogramTest {
     histogram.addValue(-5.5);
     Histogram preprocessedHistogram = histogram.getPreprocessedCopy();
     histogram.addValue(-4.4);
+    @SuppressWarnings("unused")
     BinIterator iterator = preprocessedHistogram.getFirstNonEmptyBin();
 
     assertThrows(UnsupportedOperationException.class, () -> preprocessedHistogram.addValue(-5.5));

@@ -92,6 +92,8 @@ public class LayoutSerializationTest {
   }
 
   private class BaseTestLayout implements Layout {
+    BaseTestLayout() {}
+
     @Override
     public int mapToBinIndex(double value) {
       throw new UnsupportedOperationException();
