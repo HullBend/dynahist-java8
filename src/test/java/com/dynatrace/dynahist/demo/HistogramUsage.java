@@ -21,6 +21,8 @@ import com.dynatrace.dynahist.Histogram;
 import com.dynatrace.dynahist.layout.Layout;
 import com.dynatrace.dynahist.layout.LogLinearLayout;
 import com.dynatrace.dynahist.layout.LogQuadraticLayout;
+import com.dynatrace.dynahist.util.PrintUtil;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInput;

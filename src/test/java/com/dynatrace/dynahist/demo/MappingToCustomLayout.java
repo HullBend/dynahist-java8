@@ -22,6 +22,8 @@ import com.dynatrace.dynahist.layout.CustomLayout;
 import com.dynatrace.dynahist.layout.Layout;
 import com.dynatrace.dynahist.layout.LogLinearLayout;
 import com.dynatrace.dynahist.layout.LogQuadraticLayout;
+import com.dynatrace.dynahist.util.PrintUtil;
+
 import java.util.Random;
 import org.junit.Test;
 

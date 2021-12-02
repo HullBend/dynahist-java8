@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dynatrace.dynahist.demo;
+package com.dynatrace.dynahist.util;
 
 import com.dynatrace.dynahist.Histogram;
 import com.dynatrace.dynahist.bin.BinIterator;
-import com.dynatrace.dynahist.util.Preconditions;
+
 import java.util.Locale;
 
 public final class PrintUtil {
@@ -82,5 +82,32 @@ public final class PrintUtil {
               temp));
     }
     return result.toString();
+  }
+
+  public static String printHtml(Histogram histogram) {
+    if (histogram == null || histogram.getTotalCount() == 0L) {
+      return "";
+    }
+    BinIterator iterator = histogram.getFirstNonEmptyBin();
+    StringBuilder buf = new StringBuilder(2048);
+    buf.append("<html><head></head><body><table border=1 cellpadding=4>\n");
+    buf.append("<tr class='header'><td>Interval</td><td>Count</td></tr>\n");
+    buf.append(
+        String.format(
+            "<tr><td>%.12E - %.12E</td><td align='right'>%d</td>\n",
+            iterator.getLowerBound(),
+            iterator.getUpperBound(),
+            iterator.getBinCount()));
+    while (!iterator.isLastNonEmptyBin()) {
+      iterator.next();
+      buf.append(
+          String.format(
+              "<tr><td>%.12E - %.12E</td><td align='right'>%d</td>\n",
+              iterator.getLowerBound(),
+              iterator.getUpperBound(),
+              iterator.getBinCount()));
+    }
+    buf.append("</table></body></html>\n");
+    return buf.toString();
   }
 }
