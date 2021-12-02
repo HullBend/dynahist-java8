@@ -1,5 +1,6 @@
 # folders
 /.settings/
 /target/
+/upload/
 /.classpath
 /.project

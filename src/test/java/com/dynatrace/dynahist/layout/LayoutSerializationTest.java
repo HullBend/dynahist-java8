@@ -31,7 +31,6 @@ public class LayoutSerializationTest {
     double relativeBinWidthLimit = 0.05;
     double valueRangeLowerBound = 10;
     double valueRangeUpperBound = 1000;
-    int precision = 6;
 
     Layout logLinearLayout =
         LogLinearLayout.create(
@@ -51,20 +50,15 @@ public class LayoutSerializationTest {
             relativeBinWidthLimit,
             valueRangeLowerBound,
             valueRangeUpperBound);
-    Layout otelExpBucketLayout = OpenTelemetryExponentialBucketsLayout.create(precision);
     Layout customLayout = CustomLayout.create(-1, 1, 2, 3);
 
     // check if layouts are pairwise different
     assertNotEquals(customLayout, logLinearLayout);
     assertNotEquals(customLayout, logQuadraticLayout);
     assertNotEquals(customLayout, logOptimalLayout);
-    assertNotEquals(customLayout, otelExpBucketLayout);
     assertNotEquals(logLinearLayout, logQuadraticLayout);
     assertNotEquals(logLinearLayout, logOptimalLayout);
-    assertNotEquals(logLinearLayout, otelExpBucketLayout);
     assertNotEquals(logQuadraticLayout, logOptimalLayout);
-    assertNotEquals(logQuadraticLayout, otelExpBucketLayout);
-    assertNotEquals(logOptimalLayout, otelExpBucketLayout);
 
     Layout deserializedLogLinearLayout =
         SerializationTestUtil.testSerialization(
@@ -84,12 +78,6 @@ public class LayoutSerializationTest {
             Layout::writeWithTypeInfo,
             Layout::readWithTypeInfo,
             "70C0EF16C3809948003F847AE147AE147B3FA999999999999AC6018603");
-    Layout deserializedOtelExpBucketLayout =
-        SerializationTestUtil.testSerialization(
-            otelExpBucketLayout,
-            Layout::writeWithTypeInfo,
-            Layout::readWithTypeInfo,
-            "F6E717A16F0A6A4A0006");
     Layout deserializedCustomLayout =
         SerializationTestUtil.testSerialization(
             customLayout,
@@ -100,7 +88,6 @@ public class LayoutSerializationTest {
     assertEquals(logLinearLayout, deserializedLogLinearLayout);
     assertEquals(logQuadraticLayout, deserializedLogQuadraticLayout);
     assertEquals(logOptimalLayout, deserializedLogOptimalLayout);
-    assertEquals(otelExpBucketLayout, deserializedOtelExpBucketLayout);
     assertEquals(customLayout, deserializedCustomLayout);
   }
 

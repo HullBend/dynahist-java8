@@ -211,12 +211,7 @@ final class LayoutSerialization {
               0x70c0ef16c3809948L,
               LogOptimalLayout.class,
               LogOptimalLayout::write,
-              LogOptimalLayout::read),
-          new LayoutSerializationDefinition(
-              0xf6e717a16f0a6a4aL,
-              OpenTelemetryExponentialBucketsLayout.class,
-              OpenTelemetryExponentialBucketsLayout::write,
-              OpenTelemetryExponentialBucketsLayout::read)
+              LogOptimalLayout::read)
         });
   }
 }

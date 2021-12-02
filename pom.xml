@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.hullbend</groupId>
     <artifactId>dynahist-java8</artifactId>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <name>com.github.hullbend:dynahist-java8</name>
     <description>DynaHist-Java8: A Dynamic Histogram Library for Java 8+</description>
     <url>https://github.com/HullBend/dynahist-java8/</url>
